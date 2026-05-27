@@ -106,9 +106,9 @@ Tenho interesse em oportunidades **remotas ou híbridas**, especialmente em proj
 
 ## 📫 Onde me encontrar
 
-- LinkedIn: [adicione aqui seu link do LinkedIn]
-- GitHub: [adicione aqui seu link do GitHub]
-- E-mail: [adicione aqui seu e-mail profissional]
+- LinkedIn: www.linkedin.com/in/leticiashimizu
+- GitHub: https://github.com/lshimizu2000/leticiashimizu
+- E-mail: lshimizu2007@gmail.com
 
 ---
 
