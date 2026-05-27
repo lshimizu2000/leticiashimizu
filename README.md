@@ -1,4 +1,4 @@
-# Olá, eu sou a Letícia Leiko 👋
+# Olá, eu sou a Letícia Shimizu 👋
 
 Sou **Desenvolvedora Backend em atualização para o mercado**, com formação e experiência na área de Tecnologia da Informação, atuando com **C#, .NET, SQL, Java, Flutter, Git/GitHub e desenvolvimento de sistemas**.
 
