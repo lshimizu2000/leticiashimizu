@@ -1,0 +1,85 @@
+﻿@model HelpDeskMvc.Models.Chamado
+
+@{
+    ViewData["Title"] = "Editar chamado";
+}
+
+<h1>Editar chamado #@Model.Id</h1>
+
+<form asp-action="Edit"
+      asp-route-id="@Model.Id"
+      method="post">
+
+    @* O campo Id não aparece na tela, mas será enviado. *@
+    <input asp-for="Id" type="hidden" />
+
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label"></label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label"></label>
+
+        <textarea asp-for="Descricao"
+                  class="form-control"
+                  rows="5">
+        </textarea>
+
+        <span asp-validation-for="Descricao"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Solicitante" class="form-label"></label>
+        <input asp-for="Solicitante" class="form-control" />
+
+        <span asp-validation-for="Solicitante"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Prioridade" class="form-label"></label>
+
+            <select asp-for="Prioridade" class="form-select">
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
+                <option value="Crítica">Crítica</option>
+            </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="Status" class="form-label"></label>
+
+            <select asp-for="Status" class="form-select">
+                <option value="Aberto">Aberto</option>
+                <option value="Em andamento">Em andamento</option>
+                <option value="Resolvido">Resolvido</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning">
+        Atualizar
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancelar
+    </a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
