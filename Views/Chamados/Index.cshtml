@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HelpDeskMvc.Models.Chamado>
+
+@{
+    ViewData["Title"] = "Chamados";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1>Chamados de suporte</h1>
+        <p class="text-muted">
+            Acompanhe as solicitações abertas pelos usuários.
+        </p>
+    </div>
+
+    <a asp-action="Create" class="btn btn-primary">
+        Novo chamado
+    </a>
+</div>
+
+@if (TempData["MensagemSucesso"] is not null)
+{
+    <div class="alert alert-success">
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Nenhum chamado foi encontrado.
+    </div>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Título</th>
+                <th>Solicitante</th>
+                <th>Prioridade</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var chamado in Model)
+            {
+                <tr>
+                    <td>#@chamado.Id</td>
+                    <td>@chamado.Titulo</td>
+                    <td>@chamado.Solicitante</td>
+                    <td>@chamado.Prioridade</td>
+                    <td>@chamado.Status</td>
+                    <td>
+                        @chamado.DataAbertura.ToString("dd/MM/yyyy HH:mm")
+                    </td>
+                    <td>
+                        <a asp-action="Details"
+                           asp-route-id="@chamado.Id"
+                           class="btn btn-sm btn-outline-info">
+                            Detalhes
+                        </a>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@chamado.Id"
+                           class="btn btn-sm btn-outline-warning">
+                            Editar
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@chamado.Id"
+                           class="btn btn-sm btn-outline-danger">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,103 @@
+﻿@model HelpDeskMvc.Models.Chamado
+
+@{
+    ViewData["Title"] = "Novo chamado";
+}
+
+<h1>Novo chamado</h1>
+
+<p class="text-muted">
+    Registre uma nova solicitação de suporte.
+</p>
+
+<form asp-action="Create" method="post">
+    @* Exibe um resumo dos erros de validação. *@
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label"></label>
+
+        <input asp-for="Titulo"
+               class="form-control"
+               placeholder="Ex.: Erro ao acessar o sistema" />
+
+        <span asp-validation-for="Titulo"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label"></label>
+
+        <textarea asp-for="Descricao"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Descreva o problema com detalhes">
+        </textarea>
+
+        <span asp-validation-for="Descricao"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Solicitante" class="form-label"></label>
+
+        <input asp-for="Solicitante"
+               class="form-control" />
+
+        <span asp-validation-for="Solicitante"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Prioridade" class="form-label"></label>
+
+            <select asp-for="Prioridade" class="form-select">
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
+                <option value="Crítica">Crítica</option>
+            </select>
+
+            <span asp-validation-for="Prioridade"
+                  class="text-danger">
+            </span>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="Status" class="form-label"></label>
+
+            <select asp-for="Status" class="form-select">
+                <option value="Aberto">Aberto</option>
+                <option value="Em andamento">Em andamento</option>
+                <option value="Resolvido">Resolvido</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
+
+            <span asp-validation-for="Status"
+                  class="text-danger">
+            </span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Salvar chamado
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancelar
+    </a>
+</form>
+
+@section Scripts {
+    @*
+      Carrega os scripts de validação no navegador.
+      Essa partial já existe no template MVC.
+    *@
+    <partial name="_ValidationScriptsPartial" />
+}

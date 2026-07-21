@@ -1,0 +1,40 @@
+﻿@model HelpDeskMvc.Models.Chamado
+
+@{
+    ViewData["Title"] = "Excluir chamado";
+}
+
+<h1>Excluir chamado</h1>
+
+<div class="alert alert-warning">
+    Tem certeza de que deseja excluir este chamado?
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>@Model.Titulo</h4>
+
+        <p>
+            <strong>Solicitante:</strong>
+            @Model.Solicitante
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            @Model.Status
+        </p>
+    </div>
+</div>
+
+<form asp-action="Delete"
+      asp-route-id="@Model.Id"
+      method="post">
+
+    <button type="submit" class="btn btn-danger">
+        Confirmar exclusão
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancelar
+    </a>
+</form>
